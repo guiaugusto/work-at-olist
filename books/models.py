@@ -1,6 +1,10 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
 
-# Create your models here.
+from authors.models import Author
+
+
+class Book(models.Model):
+    name = models.TextField(default='')
+    edition = models.IntegerField(default=0)
+    publication_year = models.IntegerField(default=0)
+    authors = models.ManyToManyField(Author)
