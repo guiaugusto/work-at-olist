@@ -1,0 +1,25 @@
+version: '3.5'
+services:
+    libstore-db:
+        container_name: libstore-db
+        restart: always
+        image: postgres:9.6
+        ports:
+            - 5432:5432
+        volumes:
+            - libstore-pg-data:/var/lib/postgresql/data
+
+    libstore-api:
+        container_name: libstore-api
+        restart: always
+        build: .
+        command: ["sh", "scripts/start.sh"]
+        ports:
+            - 4000:4000
+        volumes:
+            - .:/work-at-olist
+        depends_on:
+            - libstore-db
+
+volumes:
+    libstore-pg-data: {}
