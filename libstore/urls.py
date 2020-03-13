@@ -21,10 +21,12 @@ from django.contrib import admin
 from rest_framework.routers import DefaultRouter
 
 from authors import urls as authors_urls
+from books import urls as books_urls
 
 router = DefaultRouter()
 
 router.registry.extend(authors_urls.router.registry)
+router.registry.extend(books_urls.router.registry)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
