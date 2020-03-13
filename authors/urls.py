@@ -6,6 +6,5 @@ router = DefaultRouter()
 
 router.register(
     r'authors',
-    AuthorsViewSet,
-    basename='authors'
+    AuthorsViewSet
 )

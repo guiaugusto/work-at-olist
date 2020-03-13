@@ -4,10 +4,6 @@ from authors.models import Author
 
 
 class AuthorsSerializer(serializers.HyperlinkedModelSerializer):
-    url = serializers.HyperlinkedIdentityField(
-        view_name="authors-detail",
-    )
-    
     class Meta:
         model = Author
         fields = (
